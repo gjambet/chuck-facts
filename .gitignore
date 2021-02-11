@@ -1,0 +1,12 @@
+# IDE
+.idea/
+**/*.iml
+
+#Gradle
+.gradle
+build/
+out/
+
+
+#Maven
+target/
