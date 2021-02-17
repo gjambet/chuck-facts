@@ -29,5 +29,5 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: gjambet/github-actions-to-github-docker-packages/dummy
+          repository: gjambet/spring-boot-rest-data-with-github-actions-to-github-docker-packages/playground
           tag_with_ref: true

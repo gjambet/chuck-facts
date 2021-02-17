@@ -1,6 +1,6 @@
 FROM openjdk:11-jre-slim
 
-COPY ./target/dummy-1.0-SNAPSHOT-jar-with-dependencies.jar .
+COPY ./target/playground-1.0-SNAPSHOT.jar .
 
 EXPOSE 8080
 
