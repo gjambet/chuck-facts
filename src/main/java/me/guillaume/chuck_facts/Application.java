@@ -1,4 +1,4 @@
-package me.guillaume.playground;
+package me.guillaume.chuck_facts;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

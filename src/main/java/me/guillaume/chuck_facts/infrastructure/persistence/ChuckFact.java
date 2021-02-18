@@ -1,11 +1,11 @@
-package me.guillaume.playground.infrastructure.persistence;
+package me.guillaume.chuck_facts.infrastructure.persistence;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Pippo {
+public class ChuckFact {
 
     @Id
     @GeneratedValue
@@ -13,11 +13,11 @@ public class Pippo {
 
     private String name;
 
-    public Pippo() {
+    public ChuckFact() {
         // JPA
     }
 
-    public Pippo(String name) {
+    public ChuckFact(String name) {
         this.name = name;
     }
 

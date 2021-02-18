@@ -1,7 +1,7 @@
-package me.guillaume.playground.adapters.api;
+package me.guillaume.chuck_facts.adapters.api;
 
-import me.guillaume.playground.application.PippoService;
-import me.guillaume.playground.infrastructure.persistence.Pippo;
+import me.guillaume.chuck_facts.application.ChuckFactsService;
+import me.guillaume.chuck_facts.infrastructure.persistence.ChuckFact;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
@@ -14,24 +14,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 
-class PippoControllerTest {
+class ChuckFactsControllerTest {
 
-    private PippoService pippoService;
+    private ChuckFactsService chuckFactsService;
     private MockMvc mockMvc;
 
     @BeforeEach
     public void setup() {
-        this.pippoService = mock(PippoService.class);
-        this.mockMvc = standaloneSetup(new PippoController(pippoService)).build();
+        this.chuckFactsService = mock(ChuckFactsService.class);
+        this.mockMvc = standaloneSetup(new ChuckFactsController(chuckFactsService)).build();
     }
 
     @Test
     public void shouldPippoTwice() throws Exception {
 
-        when(pippoService.pippos()).thenReturn(of(new Pippo("pippo"), new Pippo("pippo2")));
+        when(chuckFactsService.facts())
+                .thenReturn(of(new ChuckFact("pipo-1"), new ChuckFact("pipo-2")));
 
-        mockMvc.perform(get("/pippo"))
+        mockMvc.perform(get("/chuck-facts"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("[\"pippo\",\"pippo2\"]"));
+                .andExpect(content().string("[\"pipo-1\",\"pipo-2\"]"));
     }
 }
