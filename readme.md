@@ -9,3 +9,8 @@ how to run locally :
  - install postgresql with default login / password
  - run mvn spring-boot:run
  - browse http://localhost:8080/chuck-facts
+
+
+## Upgrade Maven dependencies with:
+
+mvn versions:use-latest-versions
