@@ -3,7 +3,7 @@ name: Publish docker image
 on:
   push:
     branches:
-      - master
+      - develop
 
 jobs:
 
@@ -33,5 +33,5 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: gjambet/chuck-facts/master
+          repository: gjambet/chuck-facts/develop
           tags: latest
