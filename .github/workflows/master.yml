@@ -8,7 +8,7 @@ on:
 jobs:
 
   build:
-    name : build master branch
+    name : build developement branch
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,24 +16,22 @@ jobs:
         with:
           distribution: 'adopt' # See 'Supported distributions' for available options
           java-version: '11'
-      
+
       - name: Maven Build & Sonar analysis
-#        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+        #        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
         run: mvn -B verify --file pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GH_PAT }}
+      #          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Build Docker image
-        run: docker build . --tag ghcr.io/gjambet/chuck-facts:latest
+        run: docker build -t chuck-facts .
 
-      - name: Publish Docker image
-        run: docker push ghcr.io/gjambet/chuck-facts:latest
-        
+      - name: Push to GitHub Packages
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: gjambet/chuck-facts/master
+          tags: latest
