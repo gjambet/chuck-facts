@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chuck Facts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+<body>
+<h1>Chuck Facts : </h1>
+<ul>
+    <li th:each="fact : ${facts}" th:text="${fact.name}"></li>
+</ul>
+</body>
+</html>

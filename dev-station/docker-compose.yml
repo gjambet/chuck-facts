@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+
+  db:
+    image: postgres
+    container_name: "local_postgres"
+    ports:
+    - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password

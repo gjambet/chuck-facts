@@ -8,7 +8,7 @@ on:
 jobs:
 
   build:
-    name : build developement branch
+    name : build master branch
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,14 +24,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-      - name: Build Docker image
-        run: docker build -t chuck-facts .
-
-      - name: Push to GitHub Packages
-        uses: docker/build-push-action@v1
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: gjambet/chuck-facts/master
-          tags: latest
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GH_PAT }}
+
+      - name: Build Docker image
+        run: docker build . --tag ghcr.io/gjambet/chuck-facts:latest
+
+      - name: Publish Docker image
+        run: docker push ghcr.io/gjambet/chuck-facts:latest
+        

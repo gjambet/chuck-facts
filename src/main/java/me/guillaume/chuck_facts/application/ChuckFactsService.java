@@ -4,8 +4,8 @@ import me.guillaume.chuck_facts.infrastructure.persistence.ChuckFact;
 import me.guillaume.chuck_facts.infrastructure.persistence.ChuckFactsRepository;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ChuckFactsService {
@@ -16,15 +16,17 @@ public class ChuckFactsService {
         this.repository = repository;
     }
 
-    @PostConstruct
-    public void initialize() {
-        if (repository.findAll().isEmpty()) {
-            repository.saveAndFlush(new ChuckFact("Chuck Norris once lost his wedding ring....since then it's been war in Middle Earth"));
-        }
-    }
-
     public List<ChuckFact> facts() {
         return repository.findAll();
     }
 
+    public void delete(Long factId) {
+        Optional<ChuckFact> fact = repository.findById(factId);
+        fact.ifPresent(repository::delete);
+    }
+
+    public void create(String fact, String author) {
+        // FIXME : check if not already present
+        repository.save(new ChuckFact(fact, author));
+    }
 }

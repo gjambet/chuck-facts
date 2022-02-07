@@ -1,16 +1,23 @@
-This is meant to be the most basic example on
-- for a dummy spring-boot (Rest endpoints + Db Connection)
-- how to build a docker image from Github Actions and publish that image to Github Package
+# project kick-off
 
-it's meant to be used to validate the vps docker-compose set-up 
+ - master branch is now analysed on https://sonarcloud.io/dashboard?id=gjambet_chuck-facts
 
 
-how to run locally : 
- - install postgresql with default login / password
- - run mvn spring-boot:run
- - browse http://localhost:8080/chuck-facts
+Now with a controller
+
+application can be run locally with the following command :
+
+cd dev-station
+docker-compose up
+cd ..
+mvn spring-boot:run
+
+(please do make sure you can run maven on command line)
+
+ - actuator endpoints available on http://localhost:8080/actuator/health
+ - first controller available here http://localhost:8080/api/chuck-facts
 
 
-## Upgrade Maven dependencies with:
-
-mvn versions:use-latest-versions
+## Upgrade dependencies version : 
+check latest pom parent version
+mvn versions::use-latest-versions

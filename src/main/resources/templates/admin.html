@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chuck Facts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<h1>Chuck Facts (Admin) : </h1>
+<form action="#" th:action="@{/admin/delete}" method="post">
+    <table>
+        <thead>
+        <tr>
+            <th th:text="Id"></th>
+            <th th:text="Fact"></th>
+            <th th:text="Author"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="fact : ${facts}">
+            <td th:text="${fact.id}"></td>
+            <td th:text="${fact.name}"></td>
+            <td th:text="${fact.author}"></td>
+            <td>
+                <button type="submit" name="factId" th:value="${fact.id}" th:text="Delete"></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
+<h1>New Fact : </h1>
+<form action="#" th:action="@{/admin/create}" method="post">
+    <table>
+        <tbody>
+        <tr>
+            <td><input name="fact" type="text" size="140"></td>
+            <td>
+                <button type="submit" th:text="Create"></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
+
+</body>
+</html>

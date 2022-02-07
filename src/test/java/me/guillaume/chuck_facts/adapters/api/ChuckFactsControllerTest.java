@@ -31,7 +31,7 @@ class ChuckFactsControllerTest {
         when(chuckFactsService.facts())
                 .thenReturn(of(new ChuckFact("pipo-1"), new ChuckFact("pipo-2")));
 
-        mockMvc.perform(get("/chuck-facts"))
+        mockMvc.perform(get("/api/chuck-facts"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("[\"pipo-1\",\"pipo-2\"]"));
     }
