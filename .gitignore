@@ -11,3 +11,8 @@ out/
 #Maven
 target/
 pom.xml.versionsBackup
+
+#Node
+node
+node_modules
+.cache
