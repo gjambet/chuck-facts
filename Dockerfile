@@ -1,4 +1,4 @@
-FROM openjdk:11-jre-slim
+FROM eclipse-temurin:17-jre-alpine
 
 COPY ./target/chuck-facts-1.0-SNAPSHOT.jar .
 
