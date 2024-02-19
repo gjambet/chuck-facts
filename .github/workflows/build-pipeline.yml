@@ -8,8 +8,8 @@ on:
 jobs:
 
   build:
-    name : build developement branch
-    runs-on: ubuntu-latest
+    name : build master branch
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v2
