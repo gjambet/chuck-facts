@@ -9,6 +9,7 @@ jobs:
 
   build:
     name : build master branch
+    permissions: write-all
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
