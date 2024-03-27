@@ -2,7 +2,7 @@ package me.guillaume.chuck_facts.infrastructure.persistence;
 
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 @Service
 class Initializer {
