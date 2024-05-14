@@ -155,6 +155,7 @@
                         <SPRING_DATASOURCE_PASSWORD>password</SPRING_DATASOURCE_PASSWORD>
                         <SPRING_JPA_HIBERNATE_DDL_AUTO>update</SPRING_JPA_HIBERNATE_DDL_AUTO>
                         <SPRING_JPA_DATABASE>POSTGRESQL</SPRING_JPA_DATABASE>
+                        <LOGGING_CONFIG>dev-station/logback.xml</LOGGING_CONFIG>
                     </environmentVariables>
                 </configuration>
             </plugin>
