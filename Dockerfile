@@ -1,4 +1,6 @@
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:21-alpine
+
+RUN apk update && apk upgrade
 
 COPY ./target/chuck-facts-1.0-SNAPSHOT.jar .
 
