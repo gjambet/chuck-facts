@@ -22,9 +22,6 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <prometheus.version>0.15.0</prometheus.version>
-<!--        <sonar.projectKey>gjambet_chuck-facts</sonar.projectKey>-->
-<!--        <sonar.organization>gjambet</sonar.organization>-->
-<!--        <sonar.host.url>https://sonarcloud.io</sonar.host.url>-->
     </properties>
 
     <dependencies>
